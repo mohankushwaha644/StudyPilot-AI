@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyPilot AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">StudyPilot<span> AI</span></div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#studyPlanResult" id="navStudyPlan">Study Plan</a>
+            <a href="#quizSection" id="navQuiz">Quiz</a>
+            <a href="#progressSection">Progress</a>
+        </nav>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero" id="dashboard">
+
+            <div class="hero-text">
+
+                <p class="tag">🤖 AI STUDY AGENT</p>
+
+                <h1>
+                    Study smarter.<br>
+                    <span>Not harder.</span>
+                </h1>
+
+                <p class="description">
+                    StudyPilot AI analyzes your goals, identifies weak topics,
+                    and creates a personalized study plan for you.
+                </p>
+
+                <button id="startBtn">
+                    Start My Study Plan →
+                </button>
+
+                <div id="profileForm" class="profile-form">
+                    <button id="closeProfileFormBtn" class="close-profile-form-btn">✕</button>
+
+                    <h2>Tell us about yourself 🎓</h2>
+
+                    <p>We'll use this information to create your personalized study plan.</p>
+
+                    <label>Your Name</label>
+                    <input type="text" id="studentName" placeholder="Enter your name">
+
+                    <label>Course / Class</label>
+                    <input type="text" id="course" placeholder="e.g. B.Tech CSE">
+
+                    <label>Subjects</label>
+                    <input type="text" id="subjects" placeholder="e.g. AI, DBMS, JavaScript">
+
+                    <label>Exam Date</label>
+                    <input type="date" id="examDate">
+
+                    <label>Daily Study Time</label>
+                    <select id="studyTime">
+                        <option value="">Select time</option>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="4">4 hours</option>
+                        <option value="5">5+ hours</option>
+                    </select>
+
+                    <label>Your Goal</label>
+                    <textarea id="goal" placeholder="What do you want to achieve?"></textarea>
+
+                    <button id="generateBtn">
+                        Generate My Study Plan →
+                    </button>
+                    <div id="studyPlanResult" class="study-plan-result" style="display: none;">
+                        <button id="closeStudyPlanBtn" class="close-study-plan-btn">
+                            ✕ Close Study Plan
+                        </button>
+
+                        <div class="plan-header">
+                            <span class="plan-badge">🤖 AI GENERATED</span>
+                            <h2>📚 Your Personalized Study Plan</h2>
+                            <p>Your plan is ready. Stay consistent and achieve your goal! 🚀</p>
+                        </div>
+
+                        <div class="student-summary">
+
+                            <div class="summary-card">
+                                <span>👤</span>
+                                <div>
+                                    <small>Student</small>
+                                    <strong id="planStudentName">-</strong>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <span>🎓</span>
+                                <div>
+                                    <small>course / class</small>
+                                    <strong id="planCourse">-</strong>
+                                </div>
+                            </div>
+        
+                            
+
+                            <div class="summary-card">
+                                <span>📅</span>
+                                <div>
+                                    <small>Exam Date</small>
+                                    <strong id="planExamDate">-</strong>
+                                </div>
+                            </div>
+
+                            <div class="summary-card">
+                                <span>⏰</span>
+                                <div>
+                                    <small>Daily Study</small>
+                                    <strong id="planStudyTime">-</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="plan-goal">
+                            <span>🎯</span>
+                            <div>
+                                <small>Your Goal</small>
+                                <p id="planGoal">-</p>
+                            </div>
+                        </div>
+
+                        <div class="plan-content">
+
+                            <h3>📋 AI Study Plan</h3>
+
+                            <div id="studyPlanContent"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="card-header">
+                    <span>Today's Progress</span>
+                    <span>🔥 5 days</span>
+                </div>
+
+                <div class="progress-circle">
+                    <div>
+                        <strong>72%</strong>
+                        <small>Completed</small>
+                    </div>
+                </div>
+
+                <div class="stats">
+
+                    <div>
+                        <strong>4</strong>
+                        <small>Topics</small>
+                    </div>
+
+                    <div>
+                        <strong>18</strong>
+                        <small>Questions</small>
+                    </div>
+
+                    <div>
+                        <strong>86%</strong>
+                        <small>Accuracy</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="features" id="studyPlanSection">
+            
+
+            <h2>Your AI Study Agent</h2>
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Personalized Plan</h3>
+                    <p>
+                        Get a study plan based on your exam,
+                        subjects and available time.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div class="icon">🧠</div>
+                    <h3>Adaptive Quiz</h3>
+                    <p>
+                        AI adjusts questions according to
+                        your performance.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Track Progress</h3>
+                    <p>
+                        Understand your strengths and weak
+                        topics through your progress.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="quiz-start-container">
+
+            <button id="startQuizBtn">
+                🧠 Start My Personalized Quiz →
+            </button>
+
+        </div>
+
+        <section class="quiz-section" id="quizSection">
+            <button id="closeQuizBtn" class="close-quiz-btn">
+                ✕ Close Quiz
+            </button>
+
+            <div class="quiz-header">
+                <span class="quiz-badge">🧠 PRACTICE MODE</span>
+
+                <h2>Test Your Knowledge</h2>
+
+                <p>
+                    Practice questions and identify the topics
+                    you need to improve.
+                </p>
+            </div>
+
+            <div class="quiz-card">
+
+                <div class="quiz-top">
+
+                    <span id="questionNumber">
+                        Question 1 of 5
+                    </span>
+
+                    <span id="quizScore">
+                        Score: 0
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div id="quizProgress"></div>
+                </div>
+
+                <h3 id="questionText">
+                    Loading question...
+                </h3>
+
+                <div id="optionsContainer" class="options-container">
+                </div>
+
+                <button id="nextQuestionBtn">
+                    Next Question →
+                </button>
+
+            </div>
+
+            <div class="quiz-result" id="quizResult">
+
+                <div class="result-icon">
+                    🎉
+                </div>
+
+                <h2>Quiz Completed!</h2>
+
+                <p id="finalScore">
+                    You scored 0 out of 5.
+                </p>
+
+                <div class="weak-topic-box">
+
+                    <h3>🎯 Your Performance</h3>
+
+                    <p id="performanceMessage">
+                        Keep practicing!
+                    </p>
+
+                    <div id="quizAccuracy"></div>
+                    <div id="correctAnswers"></div>
+                    <div id="wrongAnswers"></div>
+
+                    <!-- <h3>⚠️ Focus Areas</h3>
+
+                    <p id="weakTopics">
+                        Complete the quiz to see your weak areas.
+                    </p> -->
+
+                </div>
+
+                <button id="restartQuizBtn">
+                    🔄 Try Again
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="progress-section" id="progressSection">
+
+            <div class="progress-header">
+
+                <span class="progress-badge">📊 YOUR PROGRESS</span>
+
+                <h2>Track Your Learning</h2>
+
+                <p>
+                    Monitor your quiz performance and study progress.
+                </p>
+
+            </div>
+
+            <div class="progress-grid">
+
+                <div class="progress-card">
+                    <span class="progress-icon">📚</span>
+                    <h3>Study Plans</h3>
+                    <!-- <strong id="totalPlans">1</strong> -->
+                    <strong id="progressStudyPlans">1</strong>
+                    <p>Plans Generated</p>
+                </div>
+
+                <div class="progress-card">
+                    <span class="progress-icon">🧠</span>
+                    <h3>Quiz Score</h3>
+                    <!-- <strong id="Quiz">0%</strong> -->
+                    <strong id="progressQuizScore">0%</strong>
+                    <p>Latest Performance</p>
+                </div>
+
+                <div class="progress-card">
+                    <span class="progress-icon">🎯</span>
+                    <h3>Questions</h3>
+                    <!-- <strong id="questionsAttempted">0</strong> -->
+                    <strong id="progressQuestions">0</strong>
+                    <p>Questions Attempted</p>
+                </div>
+
+                <div class="progress-card">
+                    <span class="progress-icon">🔥</span>
+                    <h3>Consistency</h3>
+                    <!-- <strong id="studyStreak">1 Day</strong> -->
+                    <strong id="progressConsistency">1 Day</strong>
+                    <p>Current Streak</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===============================
+            SMART ANALYTICS
+        ================================ -->
+
+        <section class="analytics-section" id="analyticsSection">
+
+            <div class="analytics-header">
+                <span class="progress-badge">🧠 SMART ANALYTICS</span>
+
+                <h2>Your Learning Analytics</h2>
+
+                <p>
+                    Understand your quiz performance and learning strengths.
+                </p>
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="analytics-card">
+                    <span class="analytics-icon">📈</span>
+                    <h3>Average Score</h3>
+                    <strong id="averageQuizScore">0%</strong>
+                    <p>Across all quizzes</p>
+                </div>
+
+                <div class="analytics-card">
+                    <span class="analytics-icon">🏆</span>
+                    <h3>Best Score</h3>
+                    <strong id="bestQuizScore">0%</strong>
+                    <p>Your highest score</p>
+                </div>
+
+                <div class="analytics-card">
+                    <span class="analytics-icon">🎯</span>
+                    <h3>Weakest Topic</h3>
+                    <strong id="weakestTopic">None</strong>
+                    <p>Needs more practice</p>
+                </div>
+
+                <div class="analytics-card">
+                    <span class="analytics-icon">💪</span>
+                    <h3>Strongest Topic</h3>
+                    <strong id="strongestTopic">None</strong>
+                    <p>Your strongest area</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===============================
+            QUIZ HISTORY
+        ================================ -->
+
+        <section class="history-section">
+
+            <div class="history-header">
+                <h2>📜 Quiz History</h2>
+                <p id="quizHistorySubtitle">
+                    No quiz attempts yet
+                </p>
+            </div>
+
+            <div id="quizHistoryList"></div>
+
+        </section>
+
+        <!-- ===============================
+            REVISION SECTION
+        ================================ -->
+
+        <section id="revisionSection" class="revision-section">
+
+            <div class="revision-card">
+
+                <button id="backToQuizBtn" class="back-btn">
+                    ← Back to Quiz
+                </button>
+
+                <h2 id="revisionTitle">
+                    📖 Revision
+                </h2>
+
+                <p id="revisionDescription">
+                    Revise your weak topic.
+                </p>
+
+                <div id="revisionContent"></div>
+
+                <button id="completeRevisionBtn" class="complete-revision-btn">
+                    ✅ Mark Revision as Completed
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+//https://devpost.com/submit-to/30721-agentic-cinema-the-blockbuster-hackathon/manage/submissions/1166813-studypilot-ai/project_details/edit
